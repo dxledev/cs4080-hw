@@ -18,6 +18,10 @@ class LoxMethodChain implements LoxCallable {
     return chain.get(index).arity();
   }
 
+  boolean isGetter() {
+    return chain.get(index).isGetter();
+  }
+
   @Override
   public Object call(Interpreter interpreter, List<Object> arguments) {
     LoxCallable nextInner;

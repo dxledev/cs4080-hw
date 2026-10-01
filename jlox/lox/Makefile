@@ -1,4 +1,5 @@
 OUT = class-files
+FILE ?=
 
 gen-compile:
 	javac com/craftinginterpreters/lox/GenerateAst.java
@@ -12,7 +13,7 @@ build:
 	javac -d $(OUT) $$(find com -name "*.java")
 
 run: build
-	java -cp $(OUT) com.craftinginterpreters.lox.Lox
+	java -cp $(OUT) com.craftinginterpreters.lox.Lox $(FILE)
 
 clean:
 	rm -rf $(OUT)

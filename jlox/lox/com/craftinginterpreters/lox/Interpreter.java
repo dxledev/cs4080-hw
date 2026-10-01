@@ -441,6 +441,9 @@ class Interpreter implements Expr.Visitor<Object>,
       if (result instanceof LoxFunction &&
           ((LoxFunction)result).isGetter()) {
         result = ((LoxFunction)result).call(this, null);
+      } else if (result instanceof LoxMethodChain &&
+          ((LoxMethodChain)result).isGetter()) {
+        result = ((LoxMethodChain)result).call(this, null);
       }
 
       return result;
